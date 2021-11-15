@@ -215,8 +215,16 @@ abstract class Shape {
 }
 
 class Rectangle extends Shape {
-    private width: number;
-    private height: number;
+    width: number;
+    height: number;
+
+
+    constructor(width, height) {
+        super();
+
+        this.width = width;
+        this.height = height;
+    }
 
     area(): void {
         let square = this.width * this.height;
@@ -231,9 +239,17 @@ class Rectangle extends Shape {
 
 class Triangle extends Shape {
 
-    private first_side: number;
-    private second_side: number;
-    private third_side: number;
+    first_side: number;
+    second_side: number;
+    third_side: number;
+
+    constructor(first_side, second_side, third_side) {
+        super();
+
+        this.first_side = first_side;
+        this.second_side = second_side;
+        this.third_side = third_side;
+    }
 
 
     area(): void {
@@ -247,7 +263,13 @@ class Triangle extends Shape {
     }
 }
 
-const rectangle = new Rectangle();
-const triangle = new Triangle();
+const triangle: Triangle = new Triangle(40, 32, 30);
 
+const rectangle: Rectangle = new Rectangle(30, 20);
 
+const arr: Shape[] = [
+    triangle,
+    rectangle,
+];
+
+arr.forEach(item => console.log(item.area()));
